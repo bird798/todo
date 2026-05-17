@@ -63,7 +63,7 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemP
             onChange={e => setEditText(e.target.value)}
             onBlur={commitEdit}
             onKeyDown={e => {
-              if (e.key === 'Enter') commitEdit();
+              if (e.key === 'Enter' && !e.nativeEvent.isComposing) commitEdit();
               if (e.key === 'Escape') { setEditText(todo.text); setEditing(false); }
             }}
             className="w-full text-sm bg-transparent border-b-2 border-indigo-400 focus:outline-none text-gray-800 dark:text-gray-100 pb-0.5"

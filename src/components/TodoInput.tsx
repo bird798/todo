@@ -33,7 +33,7 @@ export default function TodoInput({ onAdd }: TodoInputProps) {
           type="text"
           value={text}
           onChange={e => setText(e.target.value)}
-          onKeyDown={e => e.key === 'Enter' && handleSubmit()}
+          onKeyDown={e => e.key === 'Enter' && !e.nativeEvent.isComposing && handleSubmit()}
           placeholder="새 할 일을 입력하세요..."
           className="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700/50 text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent text-sm transition"
         />
